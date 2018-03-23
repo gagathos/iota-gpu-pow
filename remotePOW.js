@@ -21,9 +21,21 @@ const postHandler = (req, res) => {
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
     res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header,X-IOTA-API-Version");
     
-	if(req.body.command == 'attachToTangle'){
-		nodeAPI(req, res)
-	}
+    switch(req.body.command){
+    case: 'getNodeInfo':
+    	res.send({
+                "appName": "gagathos/iota-gpu-pow",
+                "appVersion": "1.0.0",
+                "duration": 1,
+        })
+    break;
+    case 'getNeighbors':
+    	res.send({neighbors: []})
+    break;
+    case 'attachToTangle':
+    	nodeAPI(req, res)
+    break;
+    }
 }
 
 function nodeAPI(req, res){
