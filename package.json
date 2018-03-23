@@ -1,0 +1,15 @@
+{
+  "name": "iota-gpu-pow",
+  "version": "1.0.0",
+  "description": "",
+  "main": "remotePOW.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "GAgathos",
+  "license": "ISC",
+  "dependencies": {
+    "ccurl.interface.js": "0.0.8",
+    "iota.lib.js": "^0.4.7"
+  }
+}
