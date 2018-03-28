@@ -14,6 +14,8 @@ I have included my own version of libccurl.so but I recommend you compile your o
 
 If you compile it with OpenCL installed it will use your GPU.
 
+If you access the remote POW from a browser (a GET request) it will print some basic statistics in JSON format.
+
 ## Suggested Tweaks
 
 You can change the max minimum weight magnitude to prevent abuse of your server with unreasonable POW requests
