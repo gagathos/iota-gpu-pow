@@ -7,6 +7,24 @@ This requires a new-ish version of NodeJS.  If you don't know how to use it, thi
 
 Simple clone this repository then run "npm install" in the iota-gpu-pow directory.
 
+## IOTA API
+
+In addition to using this as a POW-only field node, you can also use this to perform POW using the standard IOTA APIs. It can not perform other API calls, just attachToTangle. 
+
+In Javascript, for instance (using iota.lib.js)
+
+```
+const IOTA = require('iota.lib.js')
+const iota = new IOTA({host : 'https://field.carriota.com', port : 443}) // this is the normal iota api instance
+const pow = new IOTA({host : 'http://localhost', port: 80}) //this is the POW only iota api instance
+```
+..... (use iota.api.* functions as normal)
+```
+pow.api.attachToTangle(trunk, branch, 14, trytes, callback)
+```
+
+There is a crude version of this in test.js of this repository.
+
 ## More Info
 This is currently a proof-of-concept to see if I can get remote dedicated POW servers working in CarrIOTA Field.
 
