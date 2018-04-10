@@ -40,7 +40,7 @@ You can change the max minimum weight magnitude to prevent abuse of your server 
 
 You can also change the port from default port 80
 
-**Note that dcurl currently doesn't use GPU on the ccurl interface, but in our testing even just using CPU gives us a performance boost**
+**Note that [dcurl currently doesn't use GPU on the ccurl interface](https://github.com/chenwei-tw/dcurl/issues/42), but in our testing even just using CPU gives us a performance boost**
 
 [dcurl](https://github.com/chenwei-tw/dcurl) can also generate a drop-in replacement for libccurl.so and get you a significant performance boost.  Note that you will have to overwrite libccurl.so or create a symlink to libdcurl.so.  You may have to compile it using the `BUILD_COMPAT ?= 1` setting.
 
@@ -54,3 +54,9 @@ https://github.com/iotaledger/ccurl
 
 CCurl Interface (Includes more compile tips)
 https://github.com/iotaledger/ccurl.interface.js
+
+## Donate, please!
+
+My wife will kill me if she finds out how much work I'm doing for free! 
+
+**IOTA:** XDQPANWSMPBLIYPPNXKVVNQHNKSHDPJJL99ETQUDCYOSJXR9MAKZQVCFWTXUI9NXFOQIWTSONO9EQXYCPWJIMFZ9B
