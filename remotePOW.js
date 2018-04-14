@@ -4,9 +4,16 @@ const IOTA = require('iota.lib.js')
 const ccurl = require('ccurl.interface.js')
 const express = require('express')
 const body = require('body-parser')
+const program = require('commander')
+
+program
+  .version('1.0.0')
+  .option('-m, --max-mwm [mwm]', 'Max Minimum Weight Magnitude', 15)
+  .option('-p, --port [port]', 'Port to host the server on', 80)
+  .option('-c, --ccurl [ccurlLocation]', 'Directory of libccurl.so', '.')
+  .parse(process.argv)
 
 const iota = new IOTA()
-const maxMwm = 15
 
 const powServer = express()
 powServer.use(body.json())
@@ -41,12 +48,12 @@ const postHandler = (req, res) => {
 function nodeAPI(req, res){
 	let startTime = Date.now()
 	let fields = req.body
-	if(fields.minWeightMagnitude > maxMwm){
-		res.send({error: "Mwm of " + fields.minWeightMagnitude + " is over max of "+maxMwm})
+	if(fields.minWeightMagnitude > program.maxMwm){
+		res.send({error: "Mwm of " + fields.minWeightMagnitude + " is over max of " + program.maxMwm})
 	} else {
 		//ccurl doesn't update attachment timestamp. Let's do it ourselves.
 		let trytes = updateTimestamp(fields.trytes)
-		ccurl(fields.trunkTransaction, fields.branchTransaction, fields.minWeightMagnitude, trytes, '.', (error, success) => {
+		ccurl(fields.trunkTransaction, fields.branchTransaction, fields.minWeightMagnitude, trytes, program.ccurl, (error, success) => {
 			if(error) console.log(error)
 			res.send({trytes : success}) //emulate node output
 			totalrequests += success.length 
@@ -75,4 +82,4 @@ function infoPage(req, res){
 }
 
 const server = powServer.get('*', infoPage).post('*', postHandler)
-server.listen(80)
+server.listen(program.port)

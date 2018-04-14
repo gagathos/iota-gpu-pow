@@ -36,9 +36,9 @@ If you access the remote POW from a browser (a GET request) it will print some b
 
 ## Suggested Tweaks
 
-You can change the max minimum weight magnitude to prevent abuse of your server with unreasonable POW requests
+You can change the max minimum weight magnitude to prevent abuse of your server with unreasonable POW requests with -m or --max-mwm
 
-You can also change the port from default port 80
+You can also change the port from default port 80 using -p PORT or --port PORT
 
 **Note that [dcurl currently doesn't use GPU on the ccurl interface](https://github.com/chenwei-tw/dcurl/issues/42), but in our testing even just using CPU gives us a performance boost**
 
