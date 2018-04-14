@@ -17,24 +17,24 @@ var averagetime = 0
 
 const postHandler = (req, res) => {
 	// Set custom headers for CORS
-	res.header("Access-Control-Allow-Origin", req.headers.origin); // restrict it to the required domain
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header,X-IOTA-API-Version");
+	res.header("Access-Control-Allow-Origin", req.headers.origin) // restrict it to the required domain
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS")
+    res.header("Access-Control-Allow-Headers", "Content-type,Accept,X-Custom-Header,X-IOTA-API-Version")
     
     switch(req.body.command){
-    case: 'getNodeInfo':
+    case 'getNodeInfo':
     	res.send({
-                "appName": "gagathos/iota-gpu-pow",
-                "appVersion": "1.0.0",
-                "duration": 1,
+          appName: 'gagathos/iota-gpu-pow',
+          appVersion: "1.0.0",
+          duration: 1
         })
-    break;
+    break
     case 'getNeighbors':
     	res.send({neighbors: []})
-    break;
+    break
     case 'attachToTangle':
     	nodeAPI(req, res)
-    break;
+    break
     }
 }
 
