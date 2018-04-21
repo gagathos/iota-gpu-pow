@@ -40,9 +40,9 @@ You can change the max minimum weight magnitude to prevent abuse of your server 
 
 You can also change the port from default port 80 using -p PORT or --port PORT
 
-**Note that [dcurl currently doesn't use GPU on the ccurl interface](https://github.com/chenwei-tw/dcurl/issues/42), but in our testing even just using CPU gives us a performance boost**
-
 [dcurl](https://github.com/chenwei-tw/dcurl) can also generate a drop-in replacement for libccurl.so and get you a significant performance boost.  Note that you will have to overwrite libccurl.so or create a symlink to libdcurl.so.  You may have to compile it using the `BUILD_COMPAT ?= 1` setting.
+
+You can use [iota-pow-benchmark](https://github.com/gagathos/iota-pow-benchmark) to test different libraries and configurations to find which gets you the best performance.
 
 ## Related Links
 
